@@ -57,6 +57,9 @@ const CoinDetails = () => {
                 enabled: false
             }
         },
+        tooltip: {
+            backgroundColor: '#2C64BC'
+        },
         dataLabels: {
             enabled: false
         },
