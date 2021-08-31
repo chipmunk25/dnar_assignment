@@ -7,7 +7,7 @@ const initialState = {
     chartLists: [],
     coinDetails: {},
     activeRoute: '',
-    activeMenu: false
+    activeMenu: true
 }
 
 
