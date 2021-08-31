@@ -328,9 +328,13 @@ input {
           justify-content: space-evenly;
           padding: 20px;
           & .website {
+            background: #17151d;
+            padding: 10px;
+            border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: #fff;
           }
           & .reddit {
             background: #17151d;
