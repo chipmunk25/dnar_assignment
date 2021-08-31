@@ -49,6 +49,7 @@ const CoinDetails = () => {
 
     const options = {
         chart: {
+            foreColor: '#fff',
             height: 350,
             type: 'line',
             zoom: {
@@ -63,7 +64,8 @@ const CoinDetails = () => {
         },
         title: {
             text: 'Coin Market Cap Chart',
-            align: 'left'
+            align: 'left',
+            color: '#fff'
         },
         grid: {
             row: {
