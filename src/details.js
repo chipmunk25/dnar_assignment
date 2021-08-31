@@ -13,6 +13,7 @@ import { requestGetAllCoins, requestGetMarketChart, requestGetSingleCoin } from 
 
 import { useSelector, useDispatch } from "react-redux"
 import ReactApexChart from 'react-apexcharts';
+import { formatDollar } from './appRedux/reducers/index';
 const { RangePicker } = DatePicker;
 
 
@@ -44,7 +45,7 @@ const CoinDetails = () => {
     };
 
 
-
+    console.log(coinDetails)
     const series = [{ name: "Coin", data: chartLists?.prices?.map(item => item?.[1].toFixed(2)) }]
 
     const options = {
@@ -100,6 +101,10 @@ const CoinDetails = () => {
                 <div className="main__container">
                     <div className="main__left">
                         <div className="chart-container">
+                            <div className="header">
+                                <h2>{formatDollar(coinDetails?.market_data?.current_price?.usd)}</h2>
+                                <span>{coinDetails?.market_data?.price_change_24h?.toFixed(2)}</span>
+                            </div>
                             {/*   <Line data={data} options={options} /> */}
                             <ReactApexChart options={options} series={series} type="line" height={350} />
                         </div>
