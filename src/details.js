@@ -97,7 +97,7 @@ const CoinDetails = () => {
 
                 <div className="main__container">
                     <div className="main__left">
-                        <div>
+                        <div className="chart-container">
                             {/*   <Line data={data} options={options} /> */}
                             <ReactApexChart options={options} series={series} type="line" height={350} />
                         </div>

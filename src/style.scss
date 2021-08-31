@@ -102,9 +102,15 @@ input {
     & .main__container {
       display: flex;
       margin-top: 20px;
+      color: #fff;
       & .main__left {
         // flex-grow: 20;
         width: 70%;
+        & .chart-container {
+          background: #241f2a;
+          padding: 20px;
+          border-radius: 10px;
+        }
         & .market__leaders {
           margin-top: 30px;
           background: #241f2a;
