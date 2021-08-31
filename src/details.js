@@ -62,7 +62,7 @@ const CoinDetails = () => {
             curve: 'straight'
         },
         title: {
-            text: 'Product Trends by Month',
+            text: 'Coin Market Cap Chart',
             align: 'left'
         },
         grid: {
