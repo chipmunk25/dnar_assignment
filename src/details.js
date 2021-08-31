@@ -12,7 +12,7 @@ import Alexa from './components/alexa';
 import { requestGetAllCoins, requestGetMarketChart, requestGetSingleCoin } from './appRedux/actions';
 
 import { useSelector, useDispatch } from "react-redux"
-
+import ReactApexChart from 'react-apexcharts';
 const { RangePicker } = DatePicker;
 
 
@@ -43,27 +43,46 @@ const CoinDetails = () => {
         ],
     };
 
-    const options = {
-        lineHeightAnnotation: {
-            always: true,
-            hover: false,
-            lineWeight: 1.5,
-        },
 
-        animation: {
-            duration: 2000,
+
+    const series = [{ name: "Coin", data: chartLists?.prices?.map(item => item?.[1].toFixed(2)) }]
+
+    const options = {
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            }
         },
-        maintainAspectRatio: false,
-        responsive: true,
-        scales: {
-            xAxes: [
-                {
-                    type: "month",
-                    distribution: "linear",
-                },
-            ],
+        dataLabels: {
+            enabled: false
         },
-    };
+        stroke: {
+            curve: 'straight'
+        },
+        title: {
+            text: 'Product Trends by Month',
+            align: 'left'
+        },
+        grid: {
+            row: {
+                // colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                //  opacity: 0.5
+            },
+        },
+        xaxis: {
+            categories: chartLists?.prices?.map(item => item?.[0].toFixed(2)),
+        }
+    }
+
+
+
+
+
+
+
+
     return (
         <div className="home">
             <Sidebar
@@ -79,7 +98,8 @@ const CoinDetails = () => {
                 <div className="main__container">
                     <div className="main__left">
                         <div>
-                            <Line data={data} options={options} />
+                            {/*   <Line data={data} options={options} /> */}
+                            <ReactApexChart options={options} series={series} type="line" height={350} />
                         </div>
                         <div className="exchange-container">
                             <Exchange title="Exchange" marketCoin={coinDetails} />
